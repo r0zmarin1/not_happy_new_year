@@ -1,0 +1,26 @@
+﻿<Window x:Class="not_happy_new_year.EditStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:not_happy_new_year"
+        mc:Ignorable="d"
+        Title="EditStudentWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label Content="Фамилия"/>
+        <TextBox Text="{Binding Student.FirstName}"/>
+        <Label Content="Имя"/>
+        <TextBox Text="{Binding Student.LastName}"/>
+        <Label Content="Отчество"/>
+        <TextBox Text="{Binding Student.Patronymic}"/>
+        <Label Content="Всего часов в кабинете"/>
+        <TextBox Text="{Binding Student.AmountHoursInCabinet}"/>
+        <Label Content="Выполненные практические работы"/>
+        <TextBox Text="{Binding Student.AmountCompletedPracticalWorks}"/>
+        <Label Content="Всего заданных вопросов"/>
+        <TextBox Text="{Binding Student.AmountAskedQuestions}"/>
+        <Label Content="Внештатные ситуации"/>
+        <ComboBox ItemsSource="{Binding Student.EmergencySituations}"/>
+        <Button Content="Сохранить" Click="Save"/>
+    </StackPanel>
+</Window>

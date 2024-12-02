@@ -1,0 +1,49 @@
+﻿<Window x:Class="not_happy_new_year.FullStudentInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:not_happy_new_year"
+        mc:Ignorable="d"
+        Title="FullStudentInfoWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label Content="С нови годой" HorizontalAlignment="Center" FontSize="35"/>
+        <!--<ListView ItemsSource="{Binding Student}">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Фамилия" Width="auto"  DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
+                    <GridViewColumn Header="Всего часов в кабинете 4"  DisplayMemberBinding="{Binding AmountHoursInCabinet}"/>
+                    <GridViewColumn Header="Выполненные практические работы"  DisplayMemberBinding="{Binding AmountCompletedPracticalWorks}"/>
+                    <GridViewColumn Header="Всего заданных вопросов"  DisplayMemberBinding="{Binding AmountAskedQuestions}"/>
+                    <GridViewColumn Header="Внештатные ситуации"  DisplayMemberBinding="{Binding EmergencySituations}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+        <Label Content="Фамилия"/>
+        <Label Content="{Binding Student.FirstName}"/>
+        <Label Content="Имя"/>
+        <Label Content="{Binding Student.LastName}"/>
+        <Label Content="Отчество"/>
+        <Label Content="{Binding Student.Patronymic}"/>
+        <Label Content="Всего часов в кабинете"/>
+        <Label Content="{Binding Student.AmountHoursInCabinet}"/>
+        <Label Content="Выполненные практические работы"/>
+        <Label Content="{Binding Student.AmountCompletedPracticalWorks}"/>
+        <Label Content="Всего заданных вопросов"/>
+        <Label Content="{Binding Student.AmountAskedQuestions}"/>
+        <Label Content="Внештатные ситуации"/>
+        <ListBox ItemsSource="{Binding Student.EmergencySituations}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Title}"/>
+                        <Label Content="{Binding Date}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Экспорт в ПДФ" Click="ExportToPDF"/>
+    </StackPanel>
+</Window>
