@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:not_happy_new_year"
         mc:Ignorable="d"
-        Title="FullStudentInfoWindow" Height="450" Width="800">
+        Title="FullStudentInfoWindow" Height="750" Width="800">
     <StackPanel>
         <Label Content="С нови годой" HorizontalAlignment="Center" FontSize="35"/>
         <!--<ListView ItemsSource="{Binding Student}">
@@ -33,7 +33,7 @@
         <Label Content="{Binding Student.AmountCompletedPracticalWorks}"/>
         <Label Content="Всего заданных вопросов"/>
         <Label Content="{Binding Student.AmountAskedQuestions}"/>
-        <Label Content="Внештатные ситуации"/>
+        <!--<Label Content="Внештатные ситуации"/>
         <ListBox ItemsSource="{Binding Student.EmergencySituations}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -43,7 +43,9 @@
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
+        </ListBox>-->
         <Button Content="Экспорт в ПДФ" Click="ExportToPDF"/>
+        <Button Content="Экспорт в QR" Click="ExportToQR"/>
+        <Image Source="{Binding ImageQR}" Height="300"/>
     </StackPanel>
 </Window>

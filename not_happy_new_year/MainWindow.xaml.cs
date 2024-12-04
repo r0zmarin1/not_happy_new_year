@@ -49,6 +49,9 @@ namespace not_happy_new_year
             EmergencySituations.Add(new EmergencySituations { Id = 4, Title = "Не поделился кодом с одногруппником", Date = DateTime.Now });
             EmergencySituations.Add(new EmergencySituations { Id = 5, Title = "Сломал стул стоя", Date = DateTime.Now });
             EmergencySituations.Add(new EmergencySituations { Id = 6, Title = "Взломал госуслуги", Date = DateTime.Now });
+            EmergencySituations.Add(new EmergencySituations { Id = 7, Title = "Задал самый тупой вопрос и расплакался, когда не получил ответ", Date = DateTime.Now });
+            EmergencySituations.Add(new EmergencySituations { Id = 8, Title = "Стал почемучкой", Date = DateTime.Now });
+            EmergencySituations.Add(new EmergencySituations { Id = 9, Title = "Просто милашка", Date = DateTime.Now });
 
             Students = new List<Student>();
             Students.Add(new Student
@@ -62,14 +65,49 @@ namespace not_happy_new_year
                 AmountAskedQuestions = 200,
                 EmergencySituations = new List<EmergencySituations> { EmergencySituations[2] }
             });
+            Students.Add(new Student
+            {
+                Id = lastIdStudent++,
+                LastName = "Крылов",
+                FirstName = "Никита",
+                Patronymic = "-",
+                AmountHoursInCabinet = -50,
+                AmountCompletedPracticalWorks = 1,
+                AmountAskedQuestions = 1000,
+                EmergencySituations = new List<EmergencySituations> { EmergencySituations[0], EmergencySituations[4], EmergencySituations[6], EmergencySituations[7] }
+            });Students.Add(new Student
+            {
+                Id = lastIdStudent++,
+                LastName = "Розина",
+                FirstName = "Мария",
+                Patronymic = "Александровна",
+                AmountHoursInCabinet = 10000,
+                AmountCompletedPracticalWorks = 100,
+                AmountAskedQuestions = 10,
+                EmergencySituations = new List<EmergencySituations> { EmergencySituations[8] }
+            });Students.Add(new Student
+            {
+                Id = lastIdStudent++,
+                LastName = "Охремчук",
+                FirstName = "Алина",
+                Patronymic = "Алеексеевна",
+                AmountHoursInCabinet = 9000,
+                AmountCompletedPracticalWorks = 100,
+                AmountAskedQuestions = 100,
+                EmergencySituations = new List<EmergencySituations> { EmergencySituations[1], EmergencySituations[8] }
+            });
             DataContext = this;
         }
-        
+
         private void CheckInfo(object sender, RoutedEventArgs e)
         {
-            FullStudentInfoWindow fullStudentInfoWindow = new FullStudentInfoWindow(Student);
-            fullStudentInfoWindow.Show();
-
+            if (Student != null)
+            {
+                FullStudentInfoWindow fullStudentInfoWindow = new FullStudentInfoWindow(Student);
+                fullStudentInfoWindow.Show();
+            }
+            else
+                MessageBox.Show("Ошибка. Обьект не выбран.");
         }
 
         private void EditStudent(object sender, RoutedEventArgs e)
